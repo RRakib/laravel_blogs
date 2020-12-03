@@ -7,7 +7,7 @@ echo "Current User ${CURRENT_USER}"
 
 echo "[+] Running Composer"
 
-if ! command -v composer &>dev/null; then
+if ! command -v composer &> /dev/null; then
     echo "Please Install Composer"
     exit
 else
