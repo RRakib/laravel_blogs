@@ -19,7 +19,7 @@ use App\Http\Controllers\DemoPageController;
 //    return view('welcome');
 //});
 //
-//Auth::routes();
+// Auth::routes();
 //
 //Route::get('/home', [HomeController::class, 'index'])->name('home');
 
