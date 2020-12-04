@@ -10,8 +10,8 @@ git add .
 
 echo "[+] Committing to git"
 echo "Please enter commit message"
-read commit_message
-git commit -m $commit_message
+read -r commit_message
+git commit -m "$commit_message"
 
 echo "[+] Pushing to github"
 git push
