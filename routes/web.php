@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\DemoPageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,10 +15,14 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+//
+//Auth::routes();
+//
+//Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Auth::routes();
-
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/', [DemoPageController::class, "landing"]) -> name("landing");
+Route::get("/service", [DemoPageController::class, "service"]) -> name("service");
+Route::get("/about", [DemoPageController::class, "about"]) -> name("about");
