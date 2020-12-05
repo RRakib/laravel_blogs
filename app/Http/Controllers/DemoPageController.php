@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
-use MongoDB\Driver\Session;
+
 
 class DemoPageController extends Controller {
     public function landing(){
@@ -12,18 +13,26 @@ class DemoPageController extends Controller {
 
     public function service(){
 
-        return view("demoPages.service");
+        return view("demoPages.service", [
+            'services'=> Session::get("todoData"),
+            'abc'=> 123
+        ]);
     }
 
     public function serviceAddData(Request $request) {
+        $todoList = [];
 
-        Session::put("")
+        if (Session::get("todoData")) {
+            $todoList = Session::get("todoData");
+        }
 
-//        return view("demoPages.service", compact(' services', $services));
-        return view("demoPages.service", [
-            'services'=> $this->services,
-            'abc'=> 123
-        ]);
+        array_push($todoList, $request->get("todo"));
+
+        Session::put("todoData", $todoList);
+
+//        Session::put("todoData", []);
+
+        return redirect()->back();
     }
 
 

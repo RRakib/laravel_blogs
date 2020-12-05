@@ -20,9 +20,11 @@
             <input type="text" name="todo" class="form-control">
             <button type="submit" class="btn btn-primary ml-3">Add</button>
         </form>
-        @foreach($services as $key=>$service)
-            <h5 class="my-4">{{ $key + 1 }}. {{ $service }}</h5>
-        @endforeach
+        @if($services)
+            @foreach($services as $key=>$service)
+                <h5 class="my-4">{{ $key + 1 }}. {{ $service }}</h5>
+            @endforeach
+        @endif
     </body>
 </html>
 @endsection
