@@ -24,5 +24,6 @@ use App\Http\Controllers\DemoPageController;
 //Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/', [DemoPageController::class, "landing"]) -> name("landing");
-Route::get("/service", [DemoPageController::class, "service"]) -> name("service");
 Route::get("/about", [DemoPageController::class, "about"]) -> name("about");
+Route::get("/service", [DemoPageController::class, "service"]) -> name("service");
+Route::post("/service", [DemoPageController::class, "serviceAddData"]) -> name("service_add_data");

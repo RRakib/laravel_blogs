@@ -13,12 +13,12 @@
     </head>
     <body>
         <h1>Service Page</h1>
-        <form action="{{ route("service") }}">
+        <form action="{{ route("service") }}" class="d-flex" action="{{ route("service") }}" method="post">
 
             {{ csrf_field() }}
 
-            <input type="text" class="form-control">
-            <button class="btn btn-primary ml-3">Add</button>
+            <input type="text" name="todo" class="form-control">
+            <button type="submit" class="btn btn-primary ml-3">Add</button>
         </form>
         @foreach($services as $key=>$service)
             <h5 class="my-4">{{ $key + 1 }}. {{ $service }}</h5>
