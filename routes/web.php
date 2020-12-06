@@ -27,3 +27,5 @@ Route::get('/', [DemoPageController::class, "landing"]) -> name("landing");
 Route::get("/about", [DemoPageController::class, "about"]) -> name("about");
 Route::get("/service", [DemoPageController::class, "service"]) -> name("service");
 Route::post("/service", [DemoPageController::class, "serviceAddData"]) -> name("service_add_data");
+Route::post("/service", [DemoPageController::class, "todoDelete"]) -> name("service_delete_data");
+Route::post("/service", [DemoPageController::class, "todoEdit"]) -> name("service_edit_data");

@@ -14,9 +14,9 @@
             <div class="row py-3">
                 <div class="col-md-3"><h3 class="mb-0">DemoPage</h3></div>
                 <div class="col-md-9 d-flex justify-content-end align-items-center">
-                    <a class="mx-4 mb-0" href="/">Landing</a>
-                    <a class="mx-4 mb-0" href="/service">Service</a>
-                    <a class="mx-4 mb-0" href="/about">About</a>
+                    <a class="mx-4 mb-0" href={{ route("landing") }}>Landing</a>
+                    <a class="mx-4 mb-0" href={{ route("service") }}>Service</a>
+                    <a class="mx-4 mb-0" href={{ route("about") }}>About</a>
                 </div>
             </div>
         </div>

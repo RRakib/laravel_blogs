@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Session;
+use App\Models\TodoModel;
 use Illuminate\Http\Request;
 
 
@@ -13,24 +13,35 @@ class DemoPageController extends Controller {
 
     public function service(){
 
+        $services = TodoModel::get();
+
         return view("demoPages.service", [
-            'services'=> Session::get("todoData"),
+            'services'=> $services,
             'abc'=> 123
         ]);
     }
 
     public function serviceAddData(Request $request) {
-        $todoList = [];
 
-        if (Session::get("todoData")) {
-            $todoList = Session::get("todoData");
-        }
+        $createData = new TodoModel();
 
-        array_push($todoList, $request->get("todo"));
+        $createData->todo = $request->get("todo");
+        $createData->save();
+        return redirect()->back();
+    }
 
-        Session::put("todoData", $todoList);
 
-//        Session::put("todoData", []);
+    public function todoDelete(Request $request){
+
+        TodoModel::destroy($request->get("id"));
+
+        return redirect()->back();
+    }
+
+    public function todoEdit(Request $request){
+
+        TodoModel::destroy($request->get("id"));
+
 
         return redirect()->back();
     }
