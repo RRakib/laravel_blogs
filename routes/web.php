@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\DemoPageController;
+use App\Http\Controllers\BlogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,9 +23,10 @@ use App\Http\Controllers\DemoPageController;
 //
 //Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::get('/', [DemoPageController::class, "landing"]) -> name("landing");
-Route::get("/about", [DemoPageController::class, "about"]) -> name("about");
-Route::get("/service", [DemoPageController::class, "service"]) -> name("service");
-Route::post("/service", [DemoPageController::class, "serviceAddData"]) -> name("service_add_data");
-Route::post("/service", [DemoPageController::class, "todoDelete"]) -> name("service_delete_data");
-Route::post("/service", [DemoPageController::class, "todoEdit"]) -> name("service_edit_data");
+Route::get('/', [BlogController::class, "landing"]) -> name("landing");
+Route::get("/about", [BlogController::class, "about"]) -> name("about");
+Route::get("/blogs", [BlogController::class, "blogs"]) -> name("blogs");
+Route::get("/blog/create", [BlogController::class, "createBlog"]) -> name("create_blog");
+Route::post("/blog/delete", [BlogController::class, "blogDelete"]) -> name("delete_blogs");
+Route::post("/blog/submit", [BlogController::class, "submitBlogs"]) -> name("submitBlogs");
+Route::post("/blog/edit", [BlogController::class, "blogEdit"]) -> name("editBlog");
