@@ -59,12 +59,24 @@ class BlogController extends Controller {
         return redirect()->back();
     }
 
-    public function blogEdit(Request $request){
+    public function blogEdit($id){
 
-        Blogs::destroy($request->get("id"));
+        $blog = Blogs::where("id", "=", $id)->get()[0];
 
+        return view("blogPages.createBlogs", [
+            "blog"=>$blog
+        ]);
+    }
 
-        return redirect()->back();
+    public function updateBlog(Request $request, $id){
+
+        $createData = Blogs::find($id);
+
+        $createData->title = $request->get("title");
+        $createData->body = $request->get("body");
+        $createData->save();
+
+        return redirect()->route("blogs");
     }
 
 
