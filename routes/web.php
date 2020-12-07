@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\OpenPagesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,14 +20,15 @@ use App\Http\Controllers\BlogController;
 //    return view('welcome');
 //});
 //
-// Auth::routes();
+ Auth::routes();
 //
 //Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::get('/', [BlogController::class, "landing"]) -> name("landing");
+Route::resource('/', OpenPagesController::class);
 Route::get("/about", [BlogController::class, "about"]) -> name("about");
 Route::get("/blogs", [BlogController::class, "blogs"]) -> name("blogs");
+Route::post("/blog/edit", [BlogController::class, "blogEdit"]) -> name("editBlog");
 Route::get("/blog/create", [BlogController::class, "createBlog"]) -> name("create_blog");
 Route::post("/blog/delete", [BlogController::class, "blogDelete"]) -> name("delete_blogs");
 Route::post("/blog/submit", [BlogController::class, "submitBlogs"]) -> name("submitBlogs");
-Route::post("/blog/edit", [BlogController::class, "blogEdit"]) -> name("editBlog");
+Route::get("/blog/details/{id}", [BlogController::class, "blogDetails"]) -> name("blogDetails");

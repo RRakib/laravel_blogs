@@ -8,12 +8,27 @@ use Illuminate\Http\Request;
 
 class BlogController extends Controller {
 
-    public function landing(){
-        return view("blogPages.landing");
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
     }
 
     public function createBlog(){
         return view("blogPages.createBlogs");
+    }
+
+    public function blogDetails($id){
+
+        $blog = Blogs::where("id", "=", $id)->get()[0];
+
+        return view("blogPages.blogDetails", [
+            "blog"=>$blog
+        ]);
     }
 
     public function blogs(){

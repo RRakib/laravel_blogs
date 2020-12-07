@@ -1,7 +1,4 @@
-@extends("layouts.blog")
-
-
-@section("content")
+<?php $__env->startSection("content"); ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -21,4 +18,6 @@
     </div>
 </body>
 </html>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make("layouts.blog", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\ThemeXpert\laravel_blogs\resources\views/blogPages/landing.blade.php ENDPATH**/ ?>

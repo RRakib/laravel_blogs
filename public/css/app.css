@@ -47,6 +47,7 @@
 html {
   font-family: sans-serif;
   line-height: 1.15;
+    height: 100%;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
@@ -72,6 +73,7 @@ body {
   line-height: 1.6;
   color: #212529;
   text-align: left;
+height: 100%;
   background-color: #f8fafc;
 }
 
@@ -259,6 +261,10 @@ textarea {
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
+}
+
+textarea{
+    height: 140px !important;
 }
 
 button,
