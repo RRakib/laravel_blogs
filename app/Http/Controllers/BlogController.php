@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SubmitBlog;
 use App\Models\Blogs;
 use Illuminate\Http\Request;
 
@@ -41,12 +42,14 @@ class BlogController extends Controller {
         ]);
     }
 
-    public function submitBlogs(Request $request) {
+    public function submitBlogs(SubmitBlog $request) {
+
+        $validData = $request->validated();
 
         $createData = new Blogs();
 
-        $createData->title = $request->get("title");
-        $createData->body = $request->get("body");
+        $createData->title = $validData["title"];
+        $createData->body = $validData["body"];
         $createData->save();
         return redirect()->route("blogs");
     }
